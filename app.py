@@ -1,5 +1,5 @@
 import streamlit as st
-import pickle
+import joblib
 import pandas as pd
 
 # ---------------------------
@@ -8,7 +8,7 @@ import pandas as pd
 @st.cache_resource
 def load_models():
     with open("temp_impact_cab_price.pkl", "rb") as f:
-        models = pickle.load(f)
+        models = joblib.load(f)
     return models["uber_model"], models["lyft_model"]
 
 uber_model, lyft_model = load_models()
@@ -91,4 +91,5 @@ if st.button("Predict Price", key="predict_button_main"):
             price = lyft_model.predict(input_df)[0]
             st.subheader("Results")
             st.success(f"Lyft Price Prediction: **${price:.2f}**")
+
 

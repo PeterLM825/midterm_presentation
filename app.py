@@ -7,7 +7,7 @@ import pandas as pd
 # ---------------------------
 @st.cache_resource
 def load_models():
-    with open("temp_impact_cab_price.pkl", "rb") as f:
+    with open("rain_impact_cab_price.pkl", "rb") as f:
         models = joblib.load(f)
     return models["uber_model"], models["lyft_model"]
 
@@ -83,6 +83,7 @@ if st.button("Predict Price", key="predict_button_main"):
             price = lyft_model.predict(input_df)[0]
             st.subheader("Results")
             st.success(f"Lyft Price Prediction: **${price:.2f}**")
+
 
 
 

@@ -13,6 +13,15 @@ def load_models():
 
 uber_model, lyft_model = load_models()
 
+logo = "parami.jpg"
+st.sidebar.image(logo, use_container_width=True)
+st.sidebar.title("Introduction to Machine Learning")
+st.sidebar.write("Peter Ling Mang")
+st.sidebar.write("Midterm Project")
+st.sidebar.write("PIUS20230029")
+st.sidebar.write("peterlingmang@parami.edu.mm")
+
+
 st.title("🚕 Uber/Lyft Price Prediction Based on Temperature")
 
 # ------- USER INPUTS -------
@@ -83,6 +92,7 @@ if st.button("Predict Price", key="predict_button_main"):
             price = lyft_model.predict(input_df)[0]
             st.subheader("Results")
             st.success(f"Lyft Price Prediction: **${price:.2f}**")
+
 
 
 

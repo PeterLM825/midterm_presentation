@@ -22,7 +22,7 @@ st.sidebar.write("PIUS20230029")
 st.sidebar.write("peterlingmang@parami.edu.mm")
 
 
-st.title("🚕 Uber/Lyft Price Prediction Based on Temperature")
+st.title("Uber/Lyft Price Prediction Based on Temperature")
 
 # ------- USER INPUTS -------
 st.header("Enter Ride Details")
@@ -57,7 +57,7 @@ temp = st.number_input("Temperature (°F)", min_value=10.0, max_value=95.0, step
 
 day_time = st.selectbox(
     "Time of Day",
-    ["Morning", "Afternoon", "Evening", "Late Night"]
+    ["Morning", "Afternoon", "Night", "Late Night"]
 )
 
 # ------- CREATE INPUT DATAFRAME -------
@@ -92,6 +92,7 @@ if st.button("Predict Price", key="predict_button_main"):
             price = lyft_model.predict(input_df)[0]
             st.subheader("Results")
             st.success(f"Lyft Price Prediction: **${price:.2f}**")
+
 
 
 
